@@ -1,26 +1,93 @@
 @import "tailwindcss";
 
+/* ============================================
+   Brunēa Design System — Organic Luxury
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --color-olive: #4A5D3A;
+  --color-olive-dark: #3A4A2D;
+  --color-olive-light: #5E7549;
+  --color-sage: #8B9D7D;
+  --color-sage-light: #A8B89D;
+
+  /* Neutrals */
+  --color-cream: #FEFCF7;
+  --color-beige: #F5F0E8;
+  --color-beige-dark: #E8DFD1;
+  --color-sand: #D4C9B8;
+  --color-charcoal: #2D2D2D;
+  --color-charcoal-light: #4A4A4A;
+
+  /* Functional */
+  --color-error: #C44536;
+  --color-success: #4A5D3A;
+  --color-warning: #C8963E;
+
+  /* Background */
+  --background: var(--color-cream);
+  --foreground: var(--color-charcoal);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Brand tokens */
+  --color-olive: var(--color-olive);
+  --color-olive-dark: var(--color-olive-dark);
+  --color-olive-light: var(--color-olive-light);
+  --color-sage: var(--color-sage);
+  --color-sage-light: var(--color-sage-light);
+  --color-cream: var(--color-cream);
+  --color-beige: var(--color-beige);
+  --color-beige-dark: var(--color-beige-dark);
+  --color-sand: var(--color-sand);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-light: var(--color-charcoal-light);
+  --color-error: var(--color-error);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+
+  /* Fonts */
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base Styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-beige);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-olive);
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: 2px solid var(--color-olive);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-sage-light);
+  color: var(--color-charcoal);
 }
