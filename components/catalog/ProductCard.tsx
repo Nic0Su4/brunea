@@ -1,15 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import { generateWhatsAppLink } from "@/lib/whatsapp";
 import { formatPrice } from "@/lib/format";
 import type { Tables } from "@/types/supabase";
 
 interface ProductCardProps {
   product: Tables<"products">;
+  priority?: boolean;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  priority = false,
+}: ProductCardProps) {
   const formattedPrice = formatPrice(product.price);
+  const whatsappLink = generateWhatsAppLink(product.name, formattedPrice);
 
   return (
     <article className="group relative flex rounded-4xl overflow-hidden bg-[#4f5d44] shadow-[0_12px_30px_-10px_rgba(79,93,68,0.12)] hover:shadow-[0_16px_35px_-8px_rgba(79,93,68,0.18)] transition-all duration-500 ease-out border border-[#4f5d44]/5">
@@ -27,6 +32,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             src={product.image_url}
             alt={product.name}
             fill
+            priority={priority}
             className="object-contain p-4 transition-transform duration-700 ease-out group-hover:scale-105"
             sizes="(max-width: 640px) 45vw, 220px"
           />
@@ -62,18 +68,21 @@ export default function ProductCard({ product }: ProductCardProps) {
           {formattedPrice}
         </p>
         <div className="pointer-events-auto">
-          {/* Plain white button as in reference mockup (no WhatsApp logo, oval, olive text) */}
-          <span
+          {/* Plain white button linking directly to WhatsApp */}
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="
               inline-block
               px-6 py-1.5 rounded-full
               bg-white text-[#4f5d44] text-xs font-semibold
-              shadow-sm hover:shadow-md hover:scale-105 active:scale-95
+              shadow-sm hover:shadow-md hover:scale-105 active:scale-[0.95]
               transition-all duration-300 cursor-pointer
             "
           >
             ¡La quiero!
-          </span>
+          </a>
         </div>
       </div>
     </article>

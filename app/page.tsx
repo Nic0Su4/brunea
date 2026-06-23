@@ -122,8 +122,12 @@ export default async function CatalogPage({ searchParams }: PageProps) {
 
         {products && products.length > 0 && (
           <div className="flex flex-col gap-5">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {products.map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                priority={index < 2}
+              />
             ))}
           </div>
         )}
