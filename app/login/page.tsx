@@ -29,7 +29,7 @@ export default function LoginPage() {
                 label="Email"
                 name="email"
                 type="email"
-                placeholder="admin@brunea.pe"
+                placeholder="admin@brunea.com"
                 required
                 autoComplete="email"
               />
