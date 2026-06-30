@@ -21,7 +21,7 @@ export const SEO = {
   TAGLINE: "Carteras Originales Importadas de USA",
 
   /** Contact WhatsApp (international format, no +) */
-  WHATSAPP_NUMBER: "51943382352",
+  WHATSAPP_NUMBER: "51987089462",
 
   /** Physical location */
   LOCATION: {
