@@ -15,9 +15,11 @@ export default function CatalogHeader() {
               Brunēa
             </h1>
             <p className="text-xs text-charcoal-light leading-relaxed mt-0.5 max-w-xs">
-              Venta de carteras originales importadas de USA.
+              Carteras originales | Importadas de EE. UU.
+            </p>{" "}
+            <p className="text-xs text-charcoal-light leading-relaxed mt-0.5 max-w-xs">
+              🤎 Encuentra tu próximo bolso aquí.
             </p>
-
             {/* Social Links matching image: aligned horizontally under description */}
             <div className="flex items-center gap-4 mt-3">
               <Link
